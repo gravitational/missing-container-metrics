@@ -20,26 +20,18 @@ require (
 	github.com/gogo/protobuf v1.3.2 // indirect
 	github.com/google/uuid v1.2.0 // indirect
 	github.com/imdario/mergo v0.3.10 // indirect
-	github.com/kr/pretty v0.2.0 // indirect
-	github.com/magefile/mage v1.11.0 // indirect
 	github.com/matttproud/golang_protobuf_extensions v1.0.2-0.20181231171920-c182affec369 // indirect
 	github.com/opencontainers/image-spec v1.0.1 // indirect
-	github.com/opencontainers/runc v1.0.0-rc93 // indirect
-	github.com/opencontainers/runtime-spec v1.0.3-0.20210303205135-43e4633e40c1 // indirect
+	github.com/opencontainers/runc v1.1.12 // indirect
 	github.com/pkg/errors v0.9.1
 	github.com/prometheus/client_golang v1.7.1
 	github.com/prometheus/procfs v0.2.0 // indirect
 	github.com/russross/blackfriday/v2 v2.1.0 // indirect
-	github.com/sirupsen/logrus v1.8.0 // indirect
 	github.com/urfave/cli/v2 v2.3.0
 	go.etcd.io/bbolt v1.3.5 // indirect
 	go.opencensus.io v0.23.0 // indirect
 	go.uber.org/zap v1.16.0
 	golang.org/x/lint v0.0.0-20200302205851-738671d3881b // indirect
-	golang.org/x/net v0.0.0-20210226172049-e18ecbb05110 // indirect
-	golang.org/x/sync v0.0.0-20210220032951-036812b2e83c // indirect
-	golang.org/x/sys v0.0.0-20210305230114-8fe3ee5dd75b // indirect
-	golang.org/x/text v0.3.5 // indirect
 	google.golang.org/genproto v0.0.0-20210303154014-9728d6b83eeb // indirect
 	google.golang.org/grpc v1.36.0 // indirect
 	gotest.tools/v3 v3.0.2 // indirect
