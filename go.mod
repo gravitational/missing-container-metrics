@@ -38,7 +38,7 @@ require (
 	golang.org/x/lint v0.0.0-20200302205851-738671d3881b // indirect
 	golang.org/x/net v0.0.0-20210226172049-e18ecbb05110 // indirect
 	golang.org/x/sync v0.0.0-20210220032951-036812b2e83c // indirect
-	golang.org/x/sys v0.0.0-20210305230114-8fe3ee5dd75b // indirect
+	golang.org/x/sys v0.1.0 // indirect
 	golang.org/x/text v0.3.5 // indirect
 	google.golang.org/genproto v0.0.0-20210303154014-9728d6b83eeb // indirect
 	google.golang.org/grpc v1.36.0 // indirect
