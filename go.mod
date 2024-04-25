@@ -23,7 +23,7 @@ require (
 	github.com/kr/pretty v0.2.0 // indirect
 	github.com/magefile/mage v1.11.0 // indirect
 	github.com/matttproud/golang_protobuf_extensions v1.0.2-0.20181231171920-c182affec369 // indirect
-	github.com/opencontainers/image-spec v1.0.1 // indirect
+	github.com/opencontainers/image-spec v1.0.2 // indirect
 	github.com/opencontainers/runc v1.0.0-rc93 // indirect
 	github.com/opencontainers/runtime-spec v1.0.3-0.20210303205135-43e4633e40c1 // indirect
 	github.com/pkg/errors v0.9.1
