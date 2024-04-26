@@ -13,6 +13,11 @@ This is a secondary process to export all the missing [Prometheus](https://prome
 * number of container restarts
 * last exit code
 
+> [!NOTE]  
+> cadvisor now implemented some of those features, but there are some issues, for example:
+> - https://github.com/google/cadvisor/issues/3015
+
+
 This was motivated by hunting down a OOM kills in a large Kubernetes cluster.
 It's possible for containers to keep running, even after a OOM-kill, if a
 sub-process got affect for example. Without this metric, it becomes much more
