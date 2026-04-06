@@ -2,13 +2,14 @@ module github.com/draganm/missing-container-metrics
 
 go 1.24.0
 
-toolchain go1.25.3
+toolchain go1.25.8
 
 require (
-	github.com/containerd/containerd v1.7.29
-	github.com/containerd/containerd/api v1.9.0
+	github.com/containerd/containerd v1.7.30
+	github.com/containerd/containerd/api v1.10.0
 	github.com/containerd/typeurl/v2 v2.2.3
-	github.com/docker/docker v28.0.0+incompatible
+	github.com/moby/moby/api v1.54.1
+	github.com/moby/moby/client v0.4.0
 	github.com/pkg/errors v0.9.1
 	github.com/prometheus/client_golang v1.20.5
 	github.com/urfave/cli/v2 v2.27.1
@@ -34,7 +35,7 @@ require (
 	github.com/cpuguy83/go-md2man/v2 v2.0.4 // indirect
 	github.com/cyphar/filepath-securejoin v0.6.0 // indirect
 	github.com/distribution/reference v0.6.0 // indirect
-	github.com/docker/go-connections v0.5.0 // indirect
+	github.com/docker/go-connections v0.6.0 // indirect
 	github.com/docker/go-events v0.0.0-20250808211157-605354379745 // indirect
 	github.com/docker/go-units v0.5.0 // indirect
 	github.com/felixge/httpsnoop v1.0.4 // indirect
@@ -52,13 +53,11 @@ require (
 	github.com/moby/sys/signal v0.7.1 // indirect
 	github.com/moby/sys/user v0.4.0 // indirect
 	github.com/moby/sys/userns v0.1.0 // indirect
-	github.com/moby/term v0.5.0 // indirect
-	github.com/morikuni/aec v1.0.0 // indirect
 	github.com/munnerz/goautoneg v0.0.0-20191010083416-a7dc8b61c822 // indirect
 	github.com/opencontainers/go-digest v1.0.0 // indirect
 	github.com/opencontainers/image-spec v1.1.1 // indirect
 	github.com/opencontainers/runtime-spec v1.2.1 // indirect
-	github.com/opencontainers/selinux v1.13.0 // indirect
+	github.com/opencontainers/selinux v1.13.1 // indirect
 	github.com/prometheus/client_model v0.6.1 // indirect
 	github.com/prometheus/common v0.55.0 // indirect
 	github.com/prometheus/procfs v0.15.1 // indirect
@@ -80,5 +79,4 @@ require (
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20251202230838-ff82c1b0f217 // indirect
 	google.golang.org/grpc v1.79.3 // indirect
 	google.golang.org/protobuf v1.36.10 // indirect
-	gotest.tools/v3 v3.5.1 // indirect
 )
