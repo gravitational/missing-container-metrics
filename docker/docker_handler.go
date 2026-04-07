@@ -4,9 +4,8 @@ import (
 	"context"
 	"strings"
 
-	containerapi "github.com/docker/docker/api/types/container"
-	"github.com/docker/docker/api/types/events"
-	"github.com/docker/docker/client"
+	mobyctr "github.com/moby/moby/api/types/container"
+	"github.com/moby/moby/client"
 	"github.com/pkg/errors"
 	"go.uber.org/zap"
 )
@@ -17,9 +16,10 @@ func HandleDocker(ctx context.Context, slogger *zap.SugaredLogger) error {
 		return errors.Wrap(err, "while creating docker client")
 	}
 
-	evts, errs := dc.Events(ctx, events.ListOptions{})
+	eventsResult := dc.Events(ctx, client.EventsListOptions{})
+	evts, errs := eventsResult.Messages, eventsResult.Err
 
-	containers, err := dc.ContainerList(ctx, containerapi.ListOptions{
+	containers, err := dc.ContainerList(ctx, client.ContainerListOptions{
 		All: true,
 	})
 
@@ -28,27 +28,30 @@ func HandleDocker(ctx context.Context, slogger *zap.SugaredLogger) error {
 	}
 
 	h := newEventHandler(func(containerID string) (pod string, namespace string) {
-		res, err := dc.ContainerInspect(context.Background(), containerID)
+		res, err := dc.ContainerInspect(context.Background(), containerID, client.ContainerInspectOptions{})
 		if err != nil {
 			return "", ""
 		}
 
-		pod = res.Config.Labels["io.kubernetes.pod.name"]
-		namespace = res.Config.Labels["io.kubernetes.pod.namespace"]
+		if res.Container.Config == nil {
+			return "", ""
+		}
+
+		pod = res.Container.Config.Labels["io.kubernetes.pod.name"]
+		namespace = res.Container.Config.Labels["io.kubernetes.pod.namespace"]
 		return pod, namespace
 	})
-	for _, c := range containers {
-		ci, err := dc.ContainerInspect(ctx, c.ID)
+	for _, c := range containers.Items {
+		ci, err := dc.ContainerInspect(ctx, c.ID, client.ContainerInspectOptions{})
 		if err != nil {
 			slogger.With("container_id", c.ID, "error", err).Warn("while getting container info")
 			continue
 		}
 		cnt := h.addContainer(c.ID, strings.TrimPrefix(c.Names[0], "/"), c.Image)
 
-		if ci.State.Status == "exited" {
-			cnt.die(ci.State.ExitCode)
+		if ci.Container.State != nil && ci.Container.State.Status == mobyctr.StateExited {
+			cnt.die(ci.Container.State.ExitCode)
 		}
-
 	}
 
 	for {
