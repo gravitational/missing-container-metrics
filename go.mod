@@ -2,7 +2,7 @@ module github.com/draganm/missing-container-metrics
 
 go 1.25.0
 
-toolchain go1.25.8
+toolchain go1.25.12
 
 require (
 	github.com/containerd/containerd v1.7.33
