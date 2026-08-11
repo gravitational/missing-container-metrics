@@ -125,5 +125,5 @@ jobs:
           ARTIFACT_NAME=$(find . -name '*.tgz' -exec basename {} \; | head -n 1)
 
           # Publish the chart
-          helm_repo=${{ steps.login-ecr.outputs.registry }}/${{ github.repository }}-helm
+          helm_repo=${{ steps.login-ecr.outputs.registry }}/charts/${{ github.repository }}
           helm push "$ARTIFACT_NAME" "oci://$helm_repo"

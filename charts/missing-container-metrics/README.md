@@ -8,7 +8,7 @@ For motivation and implementation details please refer to [blog post](https://ww
 ## Installing the Chart
 ```bash
 $ kubectl create namespace missing-container-metrics
-$ helm install my-release-name oci://public.ecr.aws/gravitational/missing-container-metrics-helm -n missing-container-metrics
+$ helm install my-release-name oci://public.ecr.aws/gravitational/charts/missing-container-metrics -n missing-container-metrics
 ```
 
 ## Configuration
