@@ -25,20 +25,24 @@ spec:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       volumes:
       {{- if .Values.useDocker}}
-      - name: dockersock
-        hostPath:
-          path: /var/run/docker.sock
+        - name: dockersock
+          hostPath:
+            path: /var/run/docker.sock
       {{- end }}
       {{- if .Values.useContainerd}}
-      - name: containerdsock
-        hostPath:
-          path: /run/containerd/containerd.sock
+        - name: containerdsock
+          hostPath:
+            path: /run/containerd/containerd.sock
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
       {{- end }}
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default (printf "v%s" .Chart.AppVersion) }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
             - name: DOCKER
@@ -69,10 +73,10 @@ spec:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
           {{- if .Values.useDocker}}
-          - name: dockersock
-            mountPath: /var/run/docker.sock
+            - name: dockersock
+              mountPath: /var/run/docker.sock
           {{- end }}
           {{- if .Values.useContainerd}}
-          - name: containerdsock
-            mountPath: /run/containerd/containerd.sock
+            - name: containerdsock
+              mountPath: /run/containerd/containerd.sock
           {{- end}}
