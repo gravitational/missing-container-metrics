@@ -17,7 +17,7 @@ $ helm install my-release-name oci://public.ecr.aws/gravitational/charts/missing
 |--------------------|-----------------------------------------------------------------|------------------------------------------------------------------|
 | image.repository   | missing-container-metrics image name                            | `public.ecr.aws/gravitational/missing-container-metrics`         |
 | image.pullPolicy   | pull policy for the image                                       | `IfNotPresent`                                                   |
-| image.tag          | tag of the missing-container-metrics image                      | `v0.23.0`                                                        |
+| image.tag          | tag of the missing-container-metrics image                      |                                                                  |
 | imagePullSecrets   | pull secrets for the image                                      | `[]`                                                             |
 | nameOverride       | Override the generated chart name. Defaults to .Chart.Name.     |                                                                  |
 | fullnameOverride   | Override the generated release name. Defaults to .Release.Name. |                                                                  |

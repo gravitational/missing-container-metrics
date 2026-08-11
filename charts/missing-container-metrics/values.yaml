@@ -5,8 +5,8 @@
 image:
   repository: public.ecr.aws/gravitational/missing-container-metrics
   pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart appVersion.
-  tag: "v0.24.0"
+  # Overrides the image tag whose default is the chart appVersion prefixed with v.
+  tag: ""
 
 imagePullSecrets: []
 nameOverride: ""
